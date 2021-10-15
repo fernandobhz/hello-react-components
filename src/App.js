@@ -1,16 +1,7 @@
 import { useState } from "react";
+import { ListaInscritos } from './Components/ListaInscritos';
 import "./App.css";
 
-function ListaInscritos({ alunos, children }) {
-  return (
-    <ul>
-      {alunos && alunos.map((aluno) => <li key={aluno}>{aluno}</li>)}
-      {(!alunos || alunos.length === 0) && (
-        <div>{children}</div>
-      )}
-    </ul>
-  );
-}
 
 function App() {
   const [alunos, setAlunos] = useState([]);
@@ -23,6 +14,7 @@ function App() {
 
   return (
     <div className="App">
+      <div>Titulo</div>
       <ListaInscritos alunos={alunos}>
         Aguardando o primeiro aluno a ser cadastrado
       </ListaInscritos>
