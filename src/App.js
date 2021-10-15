@@ -1,30 +1,20 @@
-import { useState } from "react";
 import { ListaInscritos } from './Components/ListaInscritos';
 import "./App.css";
 
-
 function App() {
-  const [alunos, setAlunos] = useState([]);
-  const [novo, setNovo] = useState("");
 
-  const processarOnClick = () => {
-    setAlunos([...alunos, novo]);
-    setNovo('');
+  const enviarListaParaXyz = alunos => {
+    // fetch ou axios ou alert
+    alert(JSON.stringify(alunos))
   }
 
   return (
     <div className="App">
       <div>Titulo</div>
-      <ListaInscritos alunos={alunos}>
+      <ListaInscritos onSubmit={enviarListaParaXyz}>
         Aguardando o primeiro aluno a ser cadastrado
       </ListaInscritos>
-      Novo aluno:{" "}
-      <input
-        type="text"
-        value={novo}
-        onChange={(event) => setNovo(event.target.value)}
-      />
-      <button onClick={processarOnClick}>Adicionar Aluno</button>
+      
     </div>
   );
 }
